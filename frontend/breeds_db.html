@@ -7,18 +7,111 @@
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
         <script src='main.js'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <h1>Horse Breeds 101</h1>
         <nav>
             <a href="index.html">Home</a>
             <a href="breeds_db.html">Breeds Database</a>
-            <a href="definitions.html">Common Horse Terms</a>
+            <a href="definitions.html">Common Horse Terms</a>   
             <a href="basics.html">Horse Basics</a>
             <a href="gallery.html">Breed Gallery</a>
             <a href="map.html">Breed Origins Map</a>
             <a href="comparison.html">Your Breed Comparison Table</a>
         </nav>
+        <h2> Horse Breeds Database </h2>
+        <b>Search the table for Breed, Average Minimum Height, Average Maximum Height, Region, Disciplines or Temperament:
+            <input id="gfg" type="text" placeholder="Search here">
+        </b>
+        <table>
+            <tr>
+                <th>Breed</th>
+                <th>Average Minimum Height</th>
+                <th>Average Maximum Height</th>
+                <th>Region</th>
+                <th>Disciplines</th>
+                <th>Temperament</th>
+            </tr>
+            <tbody id="breeds">
+                <tr>
+                    <td>Andalusian</td>
+                    <td>15.2</td>
+                    <td>16.2</td>
+                    <td>Spain</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Arabian</td>
+                    <td>14.1</td>
+                    <td>15.1</td>
+                    <td>Middle East</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Thoroughbred</td>
+                    <td>15.2</td>
+                    <td>16</td>
+                    <td>England</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Irish Sport Horse</td>
+                    <td>15</td>
+                    <td>17</td>
+                    <td>Ireland</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Tennessee Walker</td>
+                    <td>14.3</td>
+                    <td>17</td>
+                    <td>United States</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Clydesdale</td>
+                    <td>17</td>
+                    <td>19</td>
+                    <td>Scotland</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Standardbred</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>United States</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Quarter Horse</td>
+                    <td>14.3</td>
+                    <td>16</td>
+                    <td>United States</td>
+                    <td></td>
+                    <td></td>
+
+                </tr>
+            </tbody>
+        </table>
+     
+        <script>
+            $(document).ready(function () {
+                $("#gfg").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#breeds tr").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
         <p><footer>&copy; 2024 Maren Cole</footer></p>
     </body>
     </html>
