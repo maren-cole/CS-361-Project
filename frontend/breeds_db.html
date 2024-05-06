@@ -22,9 +22,10 @@
         </div>
         <h2> Horse Breeds Database </h2>
         <b>Search the table for Breed, Average Minimum Height, Average Maximum Height, Region, Disciplines or Temperament:
-            <input id="gfg" type="text" placeholder="Search here">
+            <input id="localSearch" type="text" placeholder="Search here">
         </b>
-        <table>
+        <p>Click a header to sort by that category!</p>
+        <table> 
             <tr>
                 <th>Breed</th>
                 <th>Average Minimum Height</th>
@@ -100,29 +101,59 @@
                 </tr>
             </tbody>    
         </table>
-     
         <script>
             $(document).ready(function() {
-                function filterTable(value) {
-                    $("#breeds tr").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value.toLowerCase()) > -1);
-                    });
+                var currentSort = { column: null, order: 'desc' };
+
+            function sortTable(index) {
+                var order = 'asc';
+                if (currentSort.column === index && currentSort.order === 'asc') {
+                    order = 'desc';
                 }
-    
-                // Handle local search input
-                $("#localSearch").on("keyup", function() {
-                    var value = $(this).val();
-                    filterTable(value);
+                var rows = $('#breeds tr').get();
+                rows.sort(function(a, b) {
+                    var A = $(a).children('td').eq(index).text().toUpperCase();
+                    var B = $(b).children('td').eq(index).text().toUpperCase();
+                    if(order === 'asc') {
+                        return (A < B) ? -1 : (A > B) ? 1 : 0;
+                    } else {
+                        return (A > B) ? -1 : (A < B) ? 1 : 0;
+                    }
                 });
-    
-                // URL search input
-                var urlParams = new URLSearchParams(window.location.search);
-                var searchQuery = urlParams.get('query');
-                if (searchQuery) {
-                    $('#localSearch').val(searchQuery);
-                    filterTable(searchQuery);
+                $.each(rows, function(index, row) {
+                    $('#breeds').append(row);
+                });
+                currentSort = { column: index, order: order };
+                $('th').eq(index).find('.sort-arrow').addClass(order);
+            }
+
+            function updateTable() {
+                var searchValue = $('#localSearch').val().toLowerCase();
+                $("#breeds tr").show().filter(function() {
+                    return $(this).text().toLowerCase().indexOf(searchValue) === -1;
+                }).hide();
+                if (currentSort.column !== null) {
+                    sortTable(currentSort.column);
                 }
+            }
+
+            $('#localSearch').on("keyup", function() {
+                updateTable();
             });
+
+            $('th').click(function() {
+                var index = $(this).index();
+                sortTable(index);
+            });
+
+            // URL search input from home page
+            var urlParams = new URLSearchParams(window.location.search);
+            var searchQuery = urlParams.get('query');
+            if (searchQuery) {
+                $('#localSearch').val(searchQuery);
+                updateTable();
+            }
+        });
         </script>
         <p><footer>&copy; 2024 Maren Cole</footer></p>
     </body>

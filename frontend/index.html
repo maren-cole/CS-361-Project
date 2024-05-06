@@ -5,7 +5,8 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <title>homepage</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='home.css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
         <script src='main.js'></script>
     </head>
     <body>
@@ -19,10 +20,12 @@
             <button onclick="window.location.href='map.html';">Breed Origins Map</button>
             <button onclick="window.location.href='comparison.html';">Your Breed Comparison Table</button>
         </div>
-        <form action="breeds_db.html" method="GET">
-            <input type="text" name="query" placeholder="Search here" required>
-            <button type="submit">Search</button>
-        </form>
+        <div>
+            <form action="breeds_db.html" method="GET">
+                <input type="text" name="query" placeholder="Search here" required>
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
         <p><footer>&copy; 2024 Maren Cole</footer></p>
     </body>
     </html>
