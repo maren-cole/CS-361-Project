@@ -1,9 +1,15 @@
-/* Overall body styling to add some padding and set the font */
+/* Overall body styling\\ */
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
     background-color: #f4f4f4;
 }
+
+h1 {
+    text-align: center;
+}
+
+/*---------------------------------------------------------------------*/
 
 /* Styles for the search input */
 input[type="text"] {
@@ -15,6 +21,8 @@ input[type="text"] {
     border: 2px solid #ccc;
     border-radius: 5px;
 }
+
+/*---------------------------------------------------------------------*/
 
 /* Table styling */
 table {
@@ -50,4 +58,37 @@ b {
     margin-bottom: 20px;
     font-size: 18px;
     color: #333;
+}
+
+/*---------------------------------------------------------------------*/
+
+/* Nav styling */
+.nav {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Styling for each navigation button */
+.nav button {
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px; 
+    margin: 0 5px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+/* Hover effects */
+.nav button:hover {
+    background-color: #45a049;
+    transform: scale(1.05); 
+}
+
+/* Active/Focused button styling */
+.nav button:active, .nav button:focus {
+    outline: none; 
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.75);
 }
