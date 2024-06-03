@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Breed Gallery</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+</head>
+<body>
+    <h1>Horse Breeds 101</h1>
+    <div class="nav">
+        <button onclick="window.location.href='index.html';">Home</button>
+        <button onclick="window.location.href='breeds_db.html';">Breeds Database</button>
+        <button onclick="window.location.href='definitions.html';">Common Horse Terms</button>
+        <button onclick="window.location.href='basics.html';">Horse Basics</button>
+        <button onclick="window.location.href='gallery.html';">Breed Gallery</button>
+        <button onclick="window.location.href='map.html';">Breed Origins Map</button>
+        <button onclick="window.location.href='comparison.html';">Your Breed Comparison Table</button>
+        <button onclick="window.location.href='unit_conversion.html';">Unit Converter</button>
+    </div>
+    <div id="breedGallery">
+        <!-- Breed images will be inserted here dynamically -->
+    </div>
+    <p><footer>&copy; 2024 Maren Cole</footer></p>
+
+    <script>
+        // Function to create an image element with hover text
+        function createBreedImage(breedName, imageUrl) {
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.title = breedName; // Set hover text to the breed name
+            document.getElementById('breedGallery').appendChild(img);
+        }
+
+        // Fetch breed images dynamically from the microservice
+        fetch('http://localhost:3000/breed-image/Arabian')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                const imageUrl = URL.createObjectURL(blob);
+                createBreedImage('Arabian', imageUrl);
+            })
+            .catch(error => console.error('Error fetching breed image:', error));
+        
+        // Repeat the above fetch process for each breed you want to display
+        // Example:
+        // fetch('http://localhost:3000/breed-image/Andalusian')
+        //     .then(response => { ... });
+        // Repeat for each breed
+    </script>
+</body>
+</html>
