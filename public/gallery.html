@@ -20,124 +20,68 @@
         <button onclick="window.location.href='gallery.html';">Breed Gallery</button>
         <button onclick="window.location.href='unit_conversion.html';">Unit Converter</button>
     </div>
+    <h2>Gallery</h2>
+    <h3>Click on a horse's image to learn more!</h3>
     <div id="breedGallery" class="gallery">
         <!-- Breed images will be inserted here dynamically -->
     </div>
     <p><footer>&copy; 2024 Maren Cole</footer></p>
 
     <script>
-        // Function to create an image element with hover text
+        // Function to create an image element with hover text and link to breed page
         function createBreedImage(breedName, imageUrl) {
+            // Create a container div for the image and caption
+            const container = document.createElement('div');
+            container.classList.add('image-container');
+
+            // Create the image element
             const img = document.createElement('img');
             img.src = imageUrl;
+            img.alt = breedName; // Set alt attribute for accessibility
             img.title = breedName; // Set hover text to the breed name
-            document.getElementById('breedGallery').appendChild(img);
+            img.addEventListener('click', function() {
+                window.location.href = 'breed info/' + breedName.replace(' ', '_') + '.html';
+            });
+
+            // Create the caption element
+            const caption = document.createElement('p');
+            caption.textContent = breedName;
+
+            // Append the image and caption to the container
+            container.appendChild(img);
+            container.appendChild(caption);
+
+            // Append the container to the gallery
+            document.getElementById('breedGallery').appendChild(container);
         }
-
-        // Fetch breed images dynamically from the microservice
-        fetch('http://localhost:3000/breed-image/Arabian')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.blob();
-            })
-            .then(blob => {
-                const imageUrl = URL.createObjectURL(blob);
-                createBreedImage('Arabian', imageUrl);
-            })
-            .catch(error => console.error('Error fetching breed image:', error));
-        
-        fetch('http://localhost:3000/breed-image/Andalusian')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.blob();
-            })
-            .then(blob => {
-                const imageUrl = URL.createObjectURL(blob);
-                createBreedImage('Arabian', imageUrl);
-            })
-            .catch(error => console.error('Error fetching breed image:', error));
-        
-        fetch('http://localhost:3000/breed-image/Clydesdale')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.blob();
-            })
-            .then(blob => {
-                const imageUrl = URL.createObjectURL(blob);
-                createBreedImage('Arabian', imageUrl);
-            })
-            .catch(error => console.error('Error fetching breed image:', error));    
-        
-        fetch('http://localhost:3000/breed-image/Thoroughbred')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.blob();
-            })
-            .then(blob => {
-                const imageUrl = URL.createObjectURL(blob);
-                createBreedImage('Arabian', imageUrl);
-            })
-            .catch(error => console.error('Error fetching breed image:', error));
-
-        fetch('http://localhost:3000/breed-image/Irish Sport Horse')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.blob();
-            })
-            .then(blob => {
-                const imageUrl = URL.createObjectURL(blob);
-                createBreedImage('Arabian', imageUrl);
-            })
-            .catch(error => console.error('Error fetching breed image:', error));
-
-        fetch('http://localhost:3000/breed-image/Quarter Horse')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.blob();
-            })
-            .then(blob => {
-                const imageUrl = URL.createObjectURL(blob);
-                createBreedImage('Arabian', imageUrl);
-            })
-            .catch(error => console.error('Error fetching breed image:', error));
     
-        fetch('http://localhost:3000/breed-image/Standardbred')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.blob();
-            })
-            .then(blob => {
-                const imageUrl = URL.createObjectURL(blob);
-                createBreedImage('Arabian', imageUrl);
-            })
-            .catch(error => console.error('Error fetching breed image:', error));
-
-        fetch('http://localhost:3000/breed-image/Tennessee Walker')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.blob();
-            })
-            .then(blob => {
-                const imageUrl = URL.createObjectURL(blob);
-                createBreedImage('Arabian', imageUrl);
-            })
-            .catch(error => console.error('Error fetching breed image:', error));
+        // Fetch breed images dynamically from the microservice
+    
+        const breeds = [
+            'Arabian',
+            'Andalusian',
+            'Clydesdale',
+            'Thoroughbred',
+            'Irish Sport Horse',
+            'Quarter Horse',
+            'Standardbred',
+            'Tennessee Walker'
+        ];
+    
+        breeds.forEach(breed => {
+            fetch('http://localhost:3000/breed-image/' + breed)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    const imageUrl = URL.createObjectURL(blob);
+                    createBreedImage(breed, imageUrl);
+                })
+                .catch(error => console.error('Error fetching breed image:', error));
+        });
     </script>
 </body>
 </html>
