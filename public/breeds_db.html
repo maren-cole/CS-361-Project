@@ -1,120 +1,25 @@
-<CTYPE html>
-    <html>
-    <head>
-        <meta charset='utf-8'>
-        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title>Breeds Database</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-        <link rel="manifest" href="site.webmanifest">
-    </head>
-    <body>
-        <h1>Horse Breeds 101</h1>
-        <div class="nav">
-            <button onclick="window.location.href='index.html';">Home</button>
-            <button onclick="window.location.href='breeds_db.html';">Breeds Database</button>
-            <button onclick="window.location.href='definitions.html';">Common Horse Terms</button>
-            <button onclick="window.location.href='gallery.html';">Breed Gallery</button>
-            <button onclick="window.location.href='unit_conversion.html';">Unit Converter</button>
-        </div>
-        <h2> Horse Breeds Database </h2>
-        <b>Search the table for Breed, Average Minimum Height, Average Maximum Height, Region, Disciplines or Temperament:
-            <input id="localSearch" type="text" placeholder="Search here">
-        </b>
-        <p>Click a header to sort by that category!</p>
-        <p>Click breed name to learn more about the breed!</p>
-        <table> 
-            <tr>
-                <th>Breed</th>
-                <th>Average Minimum Height</th>
-                <th>Average Maximum Height</th>
-                <th>Region</th>
-                <th>Colors</th>
-                <th>Disciplines</th>
-                <th>Temperament</th>
-            </tr>
-            <tbody id="breeds">
-                <tr>
-                    <td><a href="breed info/andalusian.html" title="Click here to learn more about Andalusians">Andalusian</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">15.2</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">16.2</a></td>
-                    <td>Spain</td>
-                    <td>Gray, Bay</td>
-                    <td>Dressage, Equitation, Western Pleasure</td>
-                    <td>Smart, Sensitive, Docile</td>
-                </tr>
-                <tr>
-                    <td><a href="breed info/arabian.html" title="Click here to learn more about Arabians">Arabian</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">14.1</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">15.1</a></td>
-                    <td>Middle East</td>
-                    <td>Gray, Bay, Chestnut, Black, Roan</td>
-                    <td>Endurance, Pleasure Riding, Dressage, Jumping</td>
-                    <td>Smart, Alert, Inquisitive</td>
-                </tr>
-                <tr>
-                    <td><a href="breed info/thoroughbred.html" title="Click here to learn more about Thoroughbreds">Thoroughbred</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">15.2</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">16</a></td>
-                    <td>England</td>
-                    <td>Bay, Chestnut, Black, Gray</td>
-                    <td>Racing, Jumping</td>
-                    <td>Smart, High Energy, Bold</td>
-                </tr>
-                <tr>
-                    <td><a href="breed info/irish_sport_horse.html" title="Click here to learn more about Irish Sport Horses">Irish Sport Horse</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">15</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">17</a></td>
-                    <td>Ireland</td>
-                    <td>Black, Brown, Bay, Chestnut, Gray, Roan</td>
-                    <td>Jumping, Eventing, Dressage</td>
-                    <td>Smart, Bold</td>
-                </tr>
-                <tr>
-                    <td><a href="breed info/tennessee_walker.html" title="Click here to learn more about Tennessee Walkers">Tennessee Walker</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">14.3</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">17</a></td>
-                    <td>United States</td>
-                    <td>Bay, Black, Champagne, Chestnut, Sorrel</td>
-                    <td>Driving, Pleasure, Halter, Trail</td>
-                    <td>Quiet, Calm, Gentle</td>
-                </tr>
-                <tr>
-                    <td><a href="breed info/clydesdale.html" title="Click here to learn more about Clydesdales">Clydesdale</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">17</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">19</a></td>
-                    <td>Scotland</td>
-                    <td>Bay</td>
-                    <td>Driving, Pleasure Riding</td>
-                    <td>Calm, Gentle</td>
-                </tr>
-                <tr>
-                    <td><a href="breed info/standardbred.html" title="Click here to learn more about Standardbreds">Standardbred</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">15</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">16</a></td>
-                    <td>United States</td>
-                    <td>Bay, Brown, Black, Gray, Chestnut</td>
-                    <td>Racing, Endurance, Reining</td>
-                    <td>Calm, Gentle, Loyal</td>
-                </tr>
-                <tr>
-                    <td><a href="breed info/quarter_horse.html" title="Click here to learn more about Quarter Horses">Quarter Horse</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">14.3</a></td>
-                    <td><a href="unit_conversion.html" title="Click here to convert to a different unit">16</a></td>
-                    <td>United States</td>
-                    <td>Chestnut, Sorrel, Black, Brown, Gray, Palomino, Buckskin</td>
-                    <td>Racing, Trail, Ranching</td>
-                    <td>Trainable, Calm, Smart</td>
-                </tr>
-            </tbody>    
-        </table>
-        <script>
-            $(document).ready(function() {
-                var currentSort = { column: null, order: 'desc' };
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Breeds Database</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        async function fetchClosestBreed(query) {
+            const response = await fetch(`http://localhost:8082/closest-breed?breed=${query}`);
+            const data = await response.json();
+            if (response.ok) {
+                return data.breed;
+            } else {
+                throw new Error(data.error);
+            }
+        }
+
+        $(document).ready(function() {
+            var currentSort = { column: null, order: 'desc' };
 
             function sortTable(index) {
                 var order = 'asc';
@@ -148,7 +53,18 @@
                 }
             }
 
-            $('#localSearch').on("keyup", function() {
+            $('#localSearch').on("keyup", async function() {
+                var searchValue = $(this).val().toLowerCase();
+                if (searchValue.length > 0) {
+                    try {
+                        const closestBreed = await fetchClosestBreed(searchValue);
+                        $('#suggestion').html(`<p>Did you mean: <strong>${closestBreed}</strong>?</p>`);
+                    } catch (error) {
+                        $('#suggestion').html(`<p>${error.message}</p>`);
+                    }
+                } else {
+                    $('#suggestion').html('');
+                }
                 updateTable();
             });
 
@@ -165,7 +81,113 @@
                 updateTable();
             }
         });
-        </script>
-        <p><footer>&copy; 2024 Maren Cole</footer></p>
-    </body>
-    </html>
+    </script>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+</head>
+<body>
+    <h1>Horse Breeds 101</h1>
+    <div class="nav">
+        <button onclick="window.location.href='index.html';">Home</button>
+        <button onclick="window.location.href='breeds_db.html';">Breeds Database</button>
+        <button onclick="window.location.href='definitions.html';">Common Horse Terms</button>
+        <button onclick="window.location.href='gallery.html';">Breed Gallery</button>
+        <button onclick="window.location.href='unit_conversion.html';">Unit Converter</button>
+    </div>
+    <h2> Horse Breeds Database </h2>
+    <b>Search the table for Breed, Average Minimum Height, Average Maximum Height, Region, Disciplines or Temperament:
+        <input id="localSearch" type="text" placeholder="Search here">
+    </b>
+    <div id="suggestion"></div>
+    <p>Click a header to sort by that category!</p>
+    <p>Click breed name to learn more about the breed!</p>
+    <table> 
+        <tr>
+            <th>Breed</th>
+            <th>Average Minimum Height</th>
+            <th>Average Maximum Height</th>
+            <th>Region</th>
+            <th>Colors</th>
+            <th>Disciplines</th>
+            <th>Temperament</th>
+        </tr>
+        <tbody id="breeds">
+            <tr>
+                <td><a href="breed info/andalusian.html" title="Click here to learn more about Andalusians">Andalusian</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">15.2</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">16.2</a></td>
+                <td>Spain</td>
+                <td>Gray, Bay</td>
+                <td>Dressage, Equitation, Western Pleasure</td>
+                <td>Smart, Sensitive, Docile</td>
+            </tr>
+            <tr>
+                <td><a href="breed info/arabian.html" title="Click here to learn more about Arabians">Arabian</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">14.1</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">15.1</a></td>
+                <td>Middle East</td>
+                <td>Gray, Bay, Chestnut, Black, Roan</td>
+                <td>Endurance, Pleasure Riding, Dressage, Jumping</td>
+                <td>Smart, Alert, Inquisitive</td>
+            </tr>
+            <tr>
+                <td><a href="breed info/thoroughbred.html" title="Click here to learn more about Thoroughbreds">Thoroughbred</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">15.2</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">16</a></td>
+                <td>England</td>
+                <td>Bay, Chestnut, Black, Gray</td>
+                <td>Racing, Jumping</td>
+                <td>Smart, High Energy, Bold</td>
+            </tr>
+            <tr>
+                <td><a href="breed info/irish_sport_horse.html" title="Click here to learn more about Irish Sport Horses">Irish Sport Horse</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">15</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">17</a></td>
+                <td>Ireland</td>
+                <td>Black, Brown, Bay, Chestnut, Gray, Roan</td>
+                <td>Jumping, Eventing, Dressage</td>
+                <td>Smart, Bold</td>
+            </tr>
+            <tr>
+                <td><a href="breed info/tennessee_walker.html" title="Click here to learn more about Tennessee Walkers">Tennessee Walker</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">14.3</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">17</a></td>
+                <td>United States</td>
+                <td>Bay, Black, Champagne, Chestnut, Sorrel</td>
+                <td>Driving, Pleasure, Halter, Trail</td>
+                <td>Quiet, Calm, Gentle</td>
+            </tr>
+            <tr>
+                <td><a href="breed info/clydesdale.html" title="Click here to learn more about Clydesdales">Clydesdale</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">17</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">19</a></td>
+                <td>Scotland</td>
+                <td>Bay</td>
+                <td>Driving, Pleasure Riding</td>
+                <td>Calm, Gentle</td>
+            </tr>
+            <tr>
+                <td><a href="breed info/standardbred.html" title="Click here to learn more about Standardbreds">Standardbred</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">15</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">16</a></td>
+                <td>United States</td>
+                <td>Bay, Brown, Black, Gray, Chestnut</td>
+                <td>Racing, Endurance, Reining</td>
+                <td>Calm, Gentle, Loyal</td>
+            </tr>
+            <tr>
+                <td><a href="breed info/quarter_horse.html" title="Click here to learn more about Quarter Horses">Quarter Horse</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">14.3</a></td>
+                <td><a href="unit_conversion.html" title="Click here to convert to a different unit">16</a></td>
+                <td>United States</td>
+                <td>Chestnut, Sorrel, Black, Brown, Gray, Palomino, Buckskin</td>
+                <td>Racing, Trail, Ranching</td>
+                <td>Trainable, Calm, Smart</td>
+            </tr>   
+        </tbody>    
+    </table>
+    <p><footer>&copy; 2024 Maren Cole</footer></p>
+</body>
+</html>

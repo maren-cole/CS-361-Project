@@ -31,6 +31,16 @@
             }
         }
 
+        async function fetchClosestTerm(query) {
+            const response = await fetch(`http://localhost:8081/closest-term?word=${query}`);
+            const data = await response.json();
+            if (response.ok) {
+                return data.word;
+            } else {
+                throw new Error(data.error);
+            }
+        }
+
         async function showDefinition() {
             const searchInput = document.getElementById('searchInput').value;
             const resultDiv = document.getElementById('result');
@@ -49,18 +59,40 @@
             }
         }
 
-        function filterTerms() {
+        async function filterTerms() {
             const searchInput = document.getElementById('searchInput').value.toLowerCase();
             const rows = document.querySelectorAll('#termsTable tbody tr');
+            const suggestionDiv = document.getElementById('suggestion');
 
+            let matchFound = false;
             rows.forEach(row => {
                 const term = row.querySelector('td').textContent.toLowerCase();
                 if (term.includes(searchInput)) {
                     row.style.display = '';
+                    matchFound = true;
                 } else {
                     row.style.display = 'none';
                 }
             });
+
+            if (!matchFound) {
+                try {
+                    const closestTerm = await fetchClosestTerm(searchInput);
+                    suggestionDiv.innerHTML = `<p>Did you mean: <strong>${closestTerm}</strong>?</p>`;
+
+                    rows.forEach(row => {
+                        const term = row.querySelector('td').textContent.toLowerCase();
+                        if (term.includes(closestTerm.toLowerCase())) {
+                            row.style.display = '';
+                        }
+                    });
+                } catch (error) {
+                    console.error('Error fetching closest term:', error);
+                    suggestionDiv.innerHTML = `<p>${error.message}</p>`;
+                }
+            } else {
+                suggestionDiv.innerHTML = '';
+            }
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
@@ -93,6 +125,7 @@
     <div>
         <input type="text" id="searchInput" onkeyup="filterTerms()" placeholder="Search for a term...">
     </div>
+    <div id="suggestion"></div>
     <div id="result">
         <table id="termsTable">
             <thead>
