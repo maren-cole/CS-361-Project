@@ -5,7 +5,7 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <title>Breed Gallery</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='css/gallery.css'>
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -20,7 +20,7 @@
         <button onclick="window.location.href='gallery.html';">Breed Gallery</button>
         <button onclick="window.location.href='unit_conversion.html';">Unit Converter</button>
     </div>
-    <div id="breedGallery">
+    <div id="breedGallery" class="gallery">
         <!-- Breed images will be inserted here dynamically -->
     </div>
     <p><footer>&copy; 2024 Maren Cole</footer></p>
@@ -48,11 +48,96 @@
             })
             .catch(error => console.error('Error fetching breed image:', error));
         
-        // Repeat the above fetch process for each breed you want to display
-        // Example:
-        // fetch('http://localhost:3000/breed-image/Andalusian')
-        //     .then(response => { ... });
-        // Repeat for each breed
+        fetch('http://localhost:3000/breed-image/Andalusian')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                const imageUrl = URL.createObjectURL(blob);
+                createBreedImage('Arabian', imageUrl);
+            })
+            .catch(error => console.error('Error fetching breed image:', error));
+        
+        fetch('http://localhost:3000/breed-image/Clydesdale')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                const imageUrl = URL.createObjectURL(blob);
+                createBreedImage('Arabian', imageUrl);
+            })
+            .catch(error => console.error('Error fetching breed image:', error));    
+        
+        fetch('http://localhost:3000/breed-image/Thoroughbred')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                const imageUrl = URL.createObjectURL(blob);
+                createBreedImage('Arabian', imageUrl);
+            })
+            .catch(error => console.error('Error fetching breed image:', error));
+
+        fetch('http://localhost:3000/breed-image/Irish Sport Horse')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                const imageUrl = URL.createObjectURL(blob);
+                createBreedImage('Arabian', imageUrl);
+            })
+            .catch(error => console.error('Error fetching breed image:', error));
+
+        fetch('http://localhost:3000/breed-image/Quarter Horse')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                const imageUrl = URL.createObjectURL(blob);
+                createBreedImage('Arabian', imageUrl);
+            })
+            .catch(error => console.error('Error fetching breed image:', error));
+    
+        fetch('http://localhost:3000/breed-image/Standardbred')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                const imageUrl = URL.createObjectURL(blob);
+                createBreedImage('Arabian', imageUrl);
+            })
+            .catch(error => console.error('Error fetching breed image:', error));
+
+        fetch('http://localhost:3000/breed-image/Tennessee Walker')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                const imageUrl = URL.createObjectURL(blob);
+                createBreedImage('Arabian', imageUrl);
+            })
+            .catch(error => console.error('Error fetching breed image:', error));
     </script>
 </body>
 </html>
