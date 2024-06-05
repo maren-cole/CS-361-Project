@@ -6,7 +6,7 @@ const cors = require('cors');
 const PORT = 9000;
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://localhost:6000', 'http://localhost:3001'],
+  origin: ['http://localhost:8080','http://localhost:3000', 'http://localhost:3001'],
   optionsSuccessStatus: 200,
 };
 

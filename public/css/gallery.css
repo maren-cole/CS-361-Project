@@ -107,3 +107,29 @@ html {
     outline: none;
     box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.75);
 }
+
+/* Header styling */
+h2 {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 20px;
+    padding-left: 20px; /* Add left padding */
+}
+
+h3 {
+    font-size: 20px;
+    color: #AAAAAA;
+    margin-bottom: 15px;
+    padding-left: 20px; /* Add left padding */
+}
+
+/* Styling for hyperlinks */
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: darkblue;
+}

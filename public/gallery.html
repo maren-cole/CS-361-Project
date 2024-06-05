@@ -23,39 +23,30 @@
     <h2>Gallery</h2>
     <h3>Click on a horse's image to learn more!</h3>
     <div id="breedGallery" class="gallery">
-        <!-- Breed images will be inserted here dynamically -->
+        <!-- Breed images will be inserted -->
     </div>
     <p><footer>&copy; 2024 Maren Cole</footer></p>
 
     <script>
-        // Function to create an image element with hover text and link to breed page
         function createBreedImage(breedName, imageUrl) {
-            // Create a container div for the image and caption
             const container = document.createElement('div');
             container.classList.add('image-container');
-
-            // Create the image element
             const img = document.createElement('img');
             img.src = imageUrl;
-            img.alt = breedName; // Set alt attribute for accessibility
-            img.title = breedName; // Set hover text to the breed name
+            img.alt = breedName; 
+            img.title = breedName; 
             img.addEventListener('click', function() {
                 window.location.href = 'breed info/' + breedName.replace(' ', '_') + '.html';
             });
 
-            // Create the caption element
             const caption = document.createElement('p');
             caption.textContent = breedName;
 
-            // Append the image and caption to the container
             container.appendChild(img);
             container.appendChild(caption);
 
-            // Append the container to the gallery
             document.getElementById('breedGallery').appendChild(container);
         }
-    
-        // Fetch breed images dynamically from the microservice
     
         const breeds = [
             'Arabian',

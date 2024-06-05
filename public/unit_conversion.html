@@ -1,85 +1,84 @@
-<CTYPE html>
-    <html>
-    <head>
-        <meta charset='utf-8'>
-        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title>Unit Converter</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
-        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-        <link rel="manifest" href="site.webmanifest">
-    </head>
-    <body>
-        <h1>Horse Breeds 101</h1>
-        <div class="nav">
-            <button onclick="window.location.href='index.html';">Home</button>
-            <button onclick="window.location.href='breeds_db.html';">Breeds Database</button>
-            <button onclick="window.location.href='definitions.html';">Common Horse Terms</button>
-            <button onclick="window.location.href='gallery.html';">Breed Gallery</button>
-            <button onclick="window.location.href='unit_conversion.html';">Unit Converter</button>
-        </div>
-        <h2>Unit Converter</h2>
-        <h3>Convert from hands to feet or meters</h3>
-        <p> 
-            <form id="conversionForm">
-                <label for="hands">Enter number of hands:</label>
-                <input type="number" id="hands" name="hands" required>
-                <label for="toUnit">Convert to:</label>
-                <select id="toUnit" name="toUnit" required>
-                    <option value="feet">Feet</option>
-                    <option value="meters">Meters</option>
-                </select>
-                <button type="submit">Convert</button>
-            </form>
-        </p>
-        <p id="responseMessage"></p>
-        <p><footer>&copy; 2024 Maren Cole</footer></p>
-        <script>
-            document.getElementById('conversionForm').addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent the default form submission
-    
-                // Get the values from the form inputs
-                const hands = document.getElementById('hands').value;
-                const toUnit = document.getElementById('toUnit').value;
-    
-                // JSON data to send
-                const jsonData = { hands: parseInt(hands), toUnit: toUnit };
-    
-                // Converter endpoint targeted
-                const endpoint = "http://flip3.engr.oregonstate.edu:50031/hands-converter/convert";
-    
-                // Set up options for the fetch request
-                const options = {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json' // Set content type to JSON
-                    },
-                    body: JSON.stringify(jsonData) // Convert JSON data to a string and set it as the request body
-                };
-    
-                // Make the fetch request with the provided options
-                fetch(endpoint, options)
-                    .then(response => {
-                        // Check if the request was successful
-                        if (!response.ok) {
-                            throw new Error('Network respon se was not ok');
-                        }
-                        // Parse the response as JSON
-                        return response.json();
-                    })
-                    .then(data => {
-                        // Handle the JSON data
-                        console.log("Response: ", data);
-                        document.getElementById('responseMessage').textContent = `Converted Value: ${jsonData[toUnit]}`;
-                    })
-                    .catch(error => {
-                        // Handle any errors that occurred during the fetch
-                        console.error('Fetch error:', error);
-                        document.getElementById('responseMessage').textContent = "An error occurred while converting the value.";
-                    });
-            });
-        </script>
-    </body>
-    </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Unit Converter</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+</head>
+<body>
+    <h1>Horse Breeds 101</h1>
+    <div class="nav">
+        <button onclick="window.location.href='index.html';">Home</button>
+        <button onclick="window.location.href='breeds_db.html';">Breeds Database</button>
+        <button onclick="window.location.href='definitions.html';">Common Horse Terms</button>
+        <button onclick="window.location.href='gallery.html';">Breed Gallery</button>
+        <button onclick="window.location.href='unit_conversion.html';">Unit Converter</button>
+    </div>
+    <h2>Unit Converter</h2>
+    <h3>Convert from hands to feet or meters</h3>
+    <form id="conversionForm">
+        <label for="hands">Enter number of hands:</label>
+        <input type="number" id="hands" name="hands" required>
+        <label for="toUnit">Convert to:</label>
+        <select id="toUnit" name="toUnit" required>
+            <option value="feet">Feet</option>
+            <option value="meters">Meters</option>
+        </select>
+        <button type="submit">Convert</button>
+    </form>
+    <p id="responseMessage"></p>
+    <footer>&copy; 2024 Maren Cole</footer>
+    <script>
+        document.getElementById('conversionForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the values from the form inputs
+            const hands = document.getElementById('hands').value;
+            const toUnit = document.getElementById('toUnit').value;
+
+            // JSON data to send
+            const jsonData = { hands: parseInt(hands), toUnit: toUnit };
+
+            // Converter endpoint targeted
+            const endpoint = "http://localhost:3001/hands-converter/convert";
+
+            // Set up options for the fetch request
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json' // Set content type to JSON
+                },
+                body: JSON.stringify(jsonData) // Convert JSON data to a string and set it as the request body
+            };
+
+            // Make the fetch request with the provided options
+            fetch(endpoint, options)
+                .then(response => {
+                    // Check if the request was successful
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    // Parse the response as JSON
+                    return response.json();
+                })
+                .then(data => {
+                    // Extract the converted value from the response JSON
+                    const convertedValue = data[toUnit];
+                    console.log("Response: ", data);
+                    document.getElementById('responseMessage').textContent = `Converted Value: ${convertedValue}`;
+                })
+                .catch(error => {
+                    // Handle any errors that occurred during the fetch
+                    console.error('Fetch error:', error);
+                    document.getElementById('responseMessage').textContent = "An error occurred while converting the value.";
+                });
+        });
+    </script>
+</body>
+</html>
